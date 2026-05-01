@@ -1,5 +1,7 @@
 # glTF Model Viewer for Zed
 
+[中文说明](README.zh-CN.md)
+
 A Zed extension helper plus a dark companion viewer for browsing and previewing `.glb` and `.gltf` files from a code worktree.
 
 > Current Zed extensions do not expose a WebView or custom editor-view API. This project therefore ships a Zed extension shell and a local Three.js companion viewer. When Zed exposes native custom views, the viewer code can be moved into an in-editor panel.
@@ -104,4 +106,3 @@ Because this project depends on a companion viewer until Zed exposes native WebV
 ## License
 
 MIT
-
