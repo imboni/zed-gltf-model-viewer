@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>glTF Model Viewer</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <header class="brand">
+          <div class="brand-mark">3D</div>
+          <div>
+            <strong>Model Preview</strong>
+            <span>GLB / glTF</span>
+          </div>
+        </header>
+
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="models, folders, extensions" />
+        </label>
+
+        <button id="dropZone" class="drop-zone" type="button">Drop or choose model files</button>
+
+        <div class="section-heading">
+          <span>Workspace Models</span>
+          <span id="modelCount">0</span>
+        </div>
+        <div id="modelList" class="model-list" role="listbox" aria-label="Workspace models"></div>
+      </aside>
+
+      <main class="stage">
+        <header class="topbar">
+          <div class="title-block">
+            <h1 id="modelName">No model selected</h1>
+            <p id="modelPath">Workspace scan is ready</p>
+          </div>
+          <div class="toolbar">
+            <button id="fitButton" type="button">Fit</button>
+            <button id="resetButton" type="button">Reset</button>
+            <button id="screenshotButton" type="button">Shot</button>
+          </div>
+        </header>
+
+        <section class="viewport-panel" aria-label="3D model viewport">
+          <canvas id="viewportCanvas"></canvas>
+          <div id="emptyState" class="empty-state">Select a model</div>
+          <div id="loadingState" class="loading-state" hidden>
+            <div class="loader"></div>
+            <span id="loadingText">Loading</span>
+          </div>
+        </section>
+
+        <footer class="statusbar">
+          <span id="rootLabel">Root</span>
+          <span id="statusLabel">Idle</span>
+        </footer>
+      </main>
+
+      <aside class="inspector">
+        <section class="panel">
+          <h2>Model</h2>
+          <dl class="metric-grid">
+            <div><dt>Format</dt><dd id="formatValue">-</dd></div>
+            <div><dt>Size</dt><dd id="fileSizeValue">-</dd></div>
+            <div><dt>Meshes</dt><dd id="meshValue">-</dd></div>
+            <div><dt>Materials</dt><dd id="materialValue">-</dd></div>
+            <div><dt>Vertices</dt><dd id="vertexValue">-</dd></div>
+            <div><dt>Triangles</dt><dd id="triangleValue">-</dd></div>
+          </dl>
+        </section>
+
+        <section class="panel">
+          <h2>Dimensions</h2>
+          <div class="dimension-readout" id="dimensionValue">-</div>
+        </section>
+
+        <section class="panel">
+          <h2>Animation</h2>
+          <div class="animation-row">
+            <select id="animationSelect" aria-label="Animation clip"></select>
+            <button id="playButton" type="button">Play</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>View</h2>
+          <div class="toggle-list">
+            <label><input id="gridToggle" type="checkbox" checked /> Grid</label>
+            <label><input id="axesToggle" type="checkbox" checked /> Axes</label>
+            <label><input id="wireToggle" type="checkbox" /> Wireframe</label>
+            <label><input id="rotateToggle" type="checkbox" /> Auto rotate</label>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <input id="fileInput" type="file" accept=".glb,.gltf,model/gltf-binary,model/gltf+json" multiple hidden />
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Run sample model viewer",
+    "command": "npm",
+    "args": [
+      "run",
+      "dev",
+      "--",
+      "--root",
+      "$ZED_WORKTREE_ROOT",
+      "--model",
+      "sample-models/triangle.gltf"
+    ],
+    "cwd": "$ZED_WORKTREE_ROOT/viewer",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Build model viewer",
+    "command": "npm",
+    "args": ["run", "build"],
+    "cwd": "$ZED_WORKTREE_ROOT/viewer",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Check Zed extension",
+    "command": "cargo",
+    "args": ["check"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]
+

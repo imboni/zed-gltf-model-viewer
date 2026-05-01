@@ -1,0 +1,11 @@
+id = "gltf-model-viewer"
+name = "glTF Model Viewer"
+version = "0.1.0"
+schema_version = 1
+authors = ["imboni"]
+description = "A Zed extension helper plus a dark GLB/glTF model previewer for local worktrees."
+repository = "https://github.com/imboni/zed-gltf-model-viewer"
+
+[slash_commands.model-preview]
+description = "Show launch commands for the GLB/glTF companion viewer"
+requires_argument = false
