@@ -1,24 +1,40 @@
+<div align="center">
+
 # glTF Model Viewer for Zed
 
-[中文说明](README.zh-CN.md)
+Dark GLB/glTF model previewing for Zed worktrees.
 
-A Zed extension helper plus a dark companion viewer for browsing and previewing `.glb` and `.gltf` files from a code worktree.
+<p>
+  <a href="README.md">English</a>
+  ·
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
 
-> Current Zed extensions do not expose a WebView or custom editor-view API. This project therefore ships a Zed extension shell and a local Three.js companion viewer. When Zed exposes native custom views, the viewer code can be moved into an in-editor panel.
+<p>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+  <a href="https://github.com/imboni/zed-gltf-model-viewer/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/imboni/zed-gltf-model-viewer/actions/workflows/ci.yml/badge.svg"></a>
+</p>
+
+</div>
+
+## Overview
+
+glTF Model Viewer for Zed helps you browse and inspect `.glb` and `.gltf` files from a code workspace. It includes a lightweight Zed extension shell and a local Three.js companion viewer with a dark, Zed-friendly interface.
+
+Zed extensions do not currently expose a WebView or custom editor-view API, so the 3D viewport runs as a local companion viewer instead of an embedded editor pane. The viewer is structured so it can be moved into a native Zed view if that API becomes available.
 
 ## Features
 
-- Workspace scanner for `.glb` and `.gltf` files
-- Local asset server for glTF buffers, images, Draco assets, and related files
-- Dark Zed-friendly interface with model browser, viewport, toolbar, and inspector
-- Orbit, pan, zoom, reset, and fit-to-model controls
-- Grid, axes, wireframe, and auto-rotate toggles
-- Animation clip selection and playback
-- Mesh, material, vertex, triangle, size, dimension, and format metadata
-- Drag-and-drop loading for local GLB/glTF files
-- Canvas screenshot export
-- Zed slash command helper: `/model-preview`
-- Example Zed tasks for launching the companion viewer
+- Scan a workspace for `.glb` and `.gltf` files
+- Serve related glTF assets from the selected workspace root
+- Preview models with orbit, pan, zoom, reset, and fit-to-model controls
+- Toggle grid, axes, wireframe, and auto-rotate modes
+- Inspect format, file size, mesh count, material count, vertices, triangles, and dimensions
+- Select and play animation clips when the model includes animations
+- Drag and drop local GLB/glTF files into the viewer
+- Export a screenshot of the current canvas
+- Launch helper instructions from Zed with `/model-preview`
+- Run bundled Zed tasks for local development and sample previewing
 
 ## Quick Start
 
@@ -29,31 +45,44 @@ npm install
 npm run dev -- --root .. --model sample-models/triangle.gltf
 ```
 
-Open the URL printed by the server.
+Open the URL printed by the dev server.
 
-To preview models from another project:
+## Usage
+
+Preview all GLB/glTF files in another project:
 
 ```sh
 cd viewer
 npm run dev -- --root /path/to/project
 ```
 
-To load a specific model first:
+Open a specific model on startup:
 
 ```sh
 npm run dev -- --root /path/to/project --model assets/model.glb --open
 ```
 
-## Zed Usage
+### CLI Options
+
+| Option | Description | Default |
+| --- | --- | --- |
+| `--root` | Workspace root to scan and serve assets from | current directory |
+| `--model` | Initial model path relative to `--root` | none |
+| `--port` | Local server port | `4177` |
+| `--host` | Local server host | `127.0.0.1` |
+| `--open` | Open the viewer in the default browser | disabled |
+
+## Zed Integration
 
 Install this repository as a Zed dev extension:
 
 1. Open Zed.
 2. Run `zed: extensions`.
-3. Choose the dev-extension flow and select this repository folder.
-4. Run `/model-preview` from Zed Assistant to get a launch command for the active worktree.
+3. Choose the dev-extension flow.
+4. Select this repository folder.
+5. Run `/model-preview` from Zed Assistant to get a launch command for the active worktree.
 
-You can also copy `examples/zed-tasks.json` into another project's `.zed/tasks.json` and replace `<absolute-path-to-this-repo>` with this repository path.
+For project-level tasks, copy `examples/zed-tasks.json` into another project's `.zed/tasks.json` and replace `<absolute-path-to-this-repo>` with this repository path.
 
 This repository also includes local tasks in `.zed/tasks.json`:
 
@@ -71,7 +100,7 @@ Requirements:
 Run checks:
 
 ```sh
-cargo check
+cargo check --locked
 
 cd viewer
 npm install
@@ -80,10 +109,10 @@ npm run build
 
 The lockfiles are intentionally committed:
 
-- `Cargo.lock` keeps the Rust 1.76-compatible transitive dependency set.
+- `Cargo.lock` keeps the Rust dependency set compatible with Rust 1.76.
 - `viewer/package-lock.json` keeps the viewer dependency graph reproducible.
 
-## Repository Layout
+## Project Structure
 
 ```text
 .
@@ -97,12 +126,17 @@ The lockfiles are intentionally committed:
 └── .zed/tasks.json             # local development tasks
 ```
 
-## Publishing to Zed Extensions
+## Roadmap
 
-Zed extension registry entries are submitted to `zed-industries/extensions` as submodules. The extension ID is `gltf-model-viewer`; do not rename it after publication.
+- Move the viewer into a native Zed panel when Zed exposes a supported custom-view API.
+- Add optional model environment presets.
+- Add richer material and texture inspection.
+- Add keyboard shortcuts for common viewport actions.
 
-Because this project depends on a companion viewer until Zed exposes native WebView/custom editor support, describe it as a launcher/helper extension when submitting it for review.
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), keep changes focused, and run the checks before opening a pull request.
 
 ## License
 
-MIT
+[MIT](LICENSE)
