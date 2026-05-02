@@ -1,8 +1,8 @@
 <div align="center">
 
-# glTF Model Viewer for Zed
+# 3D Model Viewer for Zed
 
-面向 Zed 工作区的深色 GLB/glTF 模型预览工具。
+面向 Zed 工作区的深色 3D 模型预览工具。
 
 <p>
   <a href="README.md">English</a>
@@ -19,19 +19,19 @@
 
 ## 项目简介
 
-glTF Model Viewer for Zed 用于在代码工作区中浏览和检查 `.glb`、`.gltf` 模型文件。项目包含一个轻量的 Zed 扩展壳，以及一个基于 Three.js 的本地伴随预览器，界面采用适合编辑器场景的深色设计。
+3D Model Viewer for Zed 用于在代码工作区中浏览和检查 3D 模型文件。目前支持 `.glb` 和 `.gltf`，项目包含一个轻量的 Zed 扩展壳，以及一个基于 Three.js 的本地伴随预览器，界面采用适合编辑器场景的深色设计。
 
 Zed 扩展目前还没有开放 WebView 或自定义编辑器视图 API，因此 3D 视图暂时以本地伴随预览器的方式运行，而不是直接嵌入 Zed 编辑器面板。预览器代码已经按独立模块组织，后续如果 Zed 提供原生自定义视图能力，可以迁移到 Zed 内部面板。
 
 ## 功能特性
 
-- 扫描工作区中的 `.glb` 和 `.gltf` 模型文件
+- 扫描工作区中受支持的 3D 模型文件
 - 从指定工作区根目录提供 glTF 关联资源
 - 支持轨道旋转、平移、缩放、重置视角和适配模型大小
 - 支持网格、坐标轴、线框和自动旋转开关
 - 展示格式、文件大小、网格数、材质数、顶点数、三角面数和尺寸信息
 - 模型包含动画时，可选择并播放动画片段
-- 支持拖拽加载本地 GLB/glTF 文件
+- 支持拖拽加载本地 3D 模型文件
 - 支持导出当前画布截图
 - 提供 Zed slash command：`/model-preview`
 - 提供 Zed task 示例，便于在 Zed 中启动预览器
@@ -49,7 +49,7 @@ npm run dev -- --root .. --model sample-models/triangle.gltf
 
 ## 使用方法
 
-预览其他项目中的所有 GLB/glTF 文件：
+预览其他项目中的所有受支持 3D 模型文件：
 
 ```sh
 cd viewer

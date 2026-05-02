@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for improving glTF Model Viewer for Zed.
+Thanks for improving 3D Model Viewer for Zed.
 
 ## Development
 
@@ -27,4 +27,3 @@ npm run dev -- --root .. --model sample-models/triangle.gltf
 - Run `cargo check` and `npm run build` before opening a pull request.
 - Do not commit generated folders such as `target/`, `viewer/node_modules/`, or `viewer/dist/`.
 - Note any Zed API assumptions in the pull request body.
-

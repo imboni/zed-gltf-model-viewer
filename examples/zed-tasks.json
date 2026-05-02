@@ -1,6 +1,6 @@
 [
   {
-    "label": "Preview current GLB/glTF",
+    "label": "Preview current 3D model",
     "command": "node",
     "args": [
       "<absolute-path-to-this-repo>/viewer/scripts/dev-server.mjs",
@@ -16,7 +16,7 @@
     "reveal": "always"
   },
   {
-    "label": "Browse GLB/glTF models",
+    "label": "Browse 3D models",
     "command": "node",
     "args": [
       "<absolute-path-to-this-repo>/viewer/scripts/dev-server.mjs",
@@ -30,4 +30,3 @@
     "reveal": "always"
   }
 ]
-

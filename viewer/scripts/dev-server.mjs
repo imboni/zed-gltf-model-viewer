@@ -91,7 +91,7 @@ const server = http.createServer(async (request, response) => {
 server.listen(port, host, () => {
   const modelQuery = initialModel ? `?model=${encodeURIComponent(initialModel)}` : "";
   const url = `http://${host}:${port}/${modelQuery}`;
-  console.log(`glTF Model Viewer`);
+  console.log(`3D Model Viewer`);
   console.log(`Root: ${root}`);
   console.log(`URL:  ${url}`);
 
@@ -239,4 +239,3 @@ function openUrl(url) {
   });
   child.unref();
 }
-

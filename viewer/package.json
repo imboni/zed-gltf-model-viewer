@@ -1,7 +1,7 @@
 {
-  "name": "gltf-model-viewer",
+  "name": "3d-model-viewer",
   "version": "0.1.0",
-  "description": "Dark GLB/glTF companion viewer for the Zed glTF Model Viewer extension.",
+  "description": "Dark 3D model companion viewer for the Zed 3D Model Viewer extension.",
   "private": true,
   "type": "module",
   "license": "MIT",

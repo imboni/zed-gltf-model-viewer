@@ -1,8 +1,8 @@
 use zed_extension_api as zed;
 
-struct GltfModelViewerExtension;
+struct ModelViewer3dExtension;
 
-impl zed::Extension for GltfModelViewerExtension {
+impl zed::Extension for ModelViewer3dExtension {
     fn new() -> Self {
         Self
     }
@@ -23,9 +23,9 @@ impl zed::Extension for GltfModelViewerExtension {
         let model = args.first();
 
         let mut text = String::new();
-        text.push_str("# glTF Model Viewer\n\n");
+        text.push_str("# 3D Model Viewer\n\n");
         text.push_str("Zed extensions cannot render a custom 3D editor pane yet. ");
-        text.push_str("This extension ships a companion viewer that scans a worktree and previews GLB/glTF files.\n\n");
+        text.push_str("This extension ships a companion viewer that scans a worktree and previews 3D model files. It currently supports GLB and glTF.\n\n");
         text.push_str("Run this from the extension repository:\n\n");
         text.push_str("```sh\n");
         text.push_str("cd viewer\n");
@@ -45,4 +45,4 @@ impl zed::Extension for GltfModelViewerExtension {
     }
 }
 
-zed::register_extension!(GltfModelViewerExtension);
+zed::register_extension!(ModelViewer3dExtension);

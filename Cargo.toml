@@ -1,10 +1,10 @@
 [package]
-name = "gltf_model_viewer"
+name = "model_viewer_3d"
 version = "0.1.0"
 edition = "2021"
 publish = false
 license = "MIT"
-description = "Zed extension helper and companion GLB/glTF model viewer."
+description = "Zed extension helper and companion 3D model viewer."
 repository = "https://github.com/imboni/zed-gltf-model-viewer"
 
 [lib]

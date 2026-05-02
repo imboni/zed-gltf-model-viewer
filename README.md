@@ -1,8 +1,8 @@
 <div align="center">
 
-# glTF Model Viewer for Zed
+# 3D Model Viewer for Zed
 
-Dark GLB/glTF model previewing for Zed worktrees.
+Dark 3D model previewing for Zed worktrees.
 
 <p>
   <a href="README.md">English</a>
@@ -19,19 +19,19 @@ Dark GLB/glTF model previewing for Zed worktrees.
 
 ## Overview
 
-glTF Model Viewer for Zed helps you browse and inspect `.glb` and `.gltf` files from a code workspace. It includes a lightweight Zed extension shell and a local Three.js companion viewer with a dark, Zed-friendly interface.
+3D Model Viewer for Zed helps you browse and inspect 3D model files from a code workspace. It currently supports `.glb` and `.gltf`, and includes a lightweight Zed extension shell plus a local Three.js companion viewer with a dark, Zed-friendly interface.
 
 Zed extensions do not currently expose a WebView or custom editor-view API, so the 3D viewport runs as a local companion viewer instead of an embedded editor pane. The viewer is structured so it can be moved into a native Zed view if that API becomes available.
 
 ## Features
 
-- Scan a workspace for `.glb` and `.gltf` files
+- Scan a workspace for supported 3D model files
 - Serve related glTF assets from the selected workspace root
 - Preview models with orbit, pan, zoom, reset, and fit-to-model controls
 - Toggle grid, axes, wireframe, and auto-rotate modes
 - Inspect format, file size, mesh count, material count, vertices, triangles, and dimensions
 - Select and play animation clips when the model includes animations
-- Drag and drop local GLB/glTF files into the viewer
+- Drag and drop local 3D model files into the viewer
 - Export a screenshot of the current canvas
 - Launch helper instructions from Zed with `/model-preview`
 - Run bundled Zed tasks for local development and sample previewing
@@ -49,7 +49,7 @@ Open the URL printed by the dev server.
 
 ## Usage
 
-Preview all GLB/glTF files in another project:
+Preview all supported 3D model files in another project:
 
 ```sh
 cd viewer
