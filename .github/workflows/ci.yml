@@ -6,26 +6,15 @@ on:
   pull_request:
 
 jobs:
-  rust:
-    name: Rust extension
+  validate:
+    name: Validate extension
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.76.0
-      - run: cargo check --locked
-
-  viewer:
-    name: Viewer
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: viewer/package-lock.json
-      - run: npm ci
-        working-directory: viewer
-      - run: npm run build
-        working-directory: viewer
-
+      - name: Check required files
+        run: |
+          test -f extension.toml
+          test -f languages/gltf/config.toml
+          test -f languages/gltf/highlights.scm
+      - name: Check sample glTF JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('fixtures/triangle.gltf', 'utf8'))"

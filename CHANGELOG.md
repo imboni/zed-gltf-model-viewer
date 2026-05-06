@@ -1,8 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Reworked the project as a Zed-compatible glTF language extension.
+- Added `.gltf` language detection and JSON grammar support.
+- Removed the unsupported slash-command and 3D viewer integration.
+
 ## 0.1.0 - 2026-05-01
 
-- Added the Zed extension shell with the `/model-preview` slash command.
-- Added a dark Three.js 3D model companion viewer with GLB/glTF support.
-- Added workspace model scanning, local asset serving, drag-and-drop loading, orbit controls, grid, axes, wireframe, animation playback, model metrics, and screenshots.
-- Added sample Zed tasks and a minimal sample glTF model.
+- Added initial glTF language extension files.

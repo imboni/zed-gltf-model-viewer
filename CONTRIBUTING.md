@@ -1,29 +1,14 @@
 # Contributing
 
-Thanks for improving 3D Model Viewer for Zed.
+Thanks for improving the glTF extension for Zed.
 
 ## Development
 
-Use Node.js 20 or newer and Rust 1.76 for the current pinned Zed extension API.
+This is a language extension. Keep changes within the extension surfaces supported by Zed's official registry.
+
+Before opening a pull request, run:
 
 ```sh
-cargo check
-
-cd viewer
-npm install
-npm run build
+git diff --check
+node -e "JSON.parse(require('fs').readFileSync('fixtures/triangle.gltf', 'utf8'))"
 ```
-
-To run the sample viewer:
-
-```sh
-cd viewer
-npm run dev -- --root .. --model sample-models/triangle.gltf
-```
-
-## Pull Requests
-
-- Keep changes focused and documented.
-- Run `cargo check` and `npm run build` before opening a pull request.
-- Do not commit generated folders such as `target/`, `viewer/node_modules/`, or `viewer/dist/`.
-- Note any Zed API assumptions in the pull request body.

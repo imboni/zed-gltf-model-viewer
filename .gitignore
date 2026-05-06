@@ -1,5 +1,1 @@
-target/
-viewer/node_modules/
-viewer/dist/
-viewer/.vite/
 .DS_Store
